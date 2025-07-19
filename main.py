@@ -1,16 +1,17 @@
-from product import Product
-from product_manager import ProductManager
+from cart import Cart
+import random
 
-# Instanțiere manager
-manager = ProductManager()
+# Crează instanța Cart
+cart = Cart()
 
-# Adăugare produse
-manager.add_product(Product("Tricou sport", 99.99, 10))
-manager.add_product(Product("Pantaloni trening", 149.99, 5))
-manager.add_product(Product("Adidași alergare", 299.99, 3))
+# Adaugă 3 produse selectate aleatoriu în coș
+available_products = product_manager.products  # presupunem că product_manager e instanța ProductManager
+if len(available_products) < 3:
+    print("Nu sunt suficiente produse pentru a adăuga în coș.")
+else:
+    random_products = random.sample(available_products, 3)
+    for product in random_products:
+        cart.add_product(product)
 
-# Afișare produse
-manager.display_products()
-
-# Valoare totală inventar
-print(f"Valoarea totală a inventarului: {manager.total_value()} lei")
+# Afișează conținutul coșului și valoarea totală
+cart.display_cart()
